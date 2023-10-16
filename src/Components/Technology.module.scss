@@ -1,0 +1,15 @@
+.technology {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  padding: 1rem;
+  img{
+    width:5.5rem;
+    height:auto;
+  }
+  p{
+    padding-top:2.5rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+}

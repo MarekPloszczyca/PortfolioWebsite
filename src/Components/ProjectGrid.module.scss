@@ -1,0 +1,11 @@
+.projectGrid {
+  display: grid;
+  place-items: center;
+  row-gap:5.5rem;
+}
+
+@media (min-width:768px){
+  .projectGrid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

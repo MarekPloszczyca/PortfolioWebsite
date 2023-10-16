@@ -1,0 +1,40 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  border-radius: 1rem;
+  width: 85%;
+  max-width: 30rem;
+  text-align: center;
+  box-shadow: 0 0 6.5rem 1.25rem #42445a;
+  img {
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+  }
+  h5 {
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    text-align: justify;
+  }
+  div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    p {
+      display: flex;
+      place-items: center;
+      text-decoration: underline;
+      img{
+        width:1.5rem;
+        margin-right:0.5rem;
+      }
+    }
+  }
+}

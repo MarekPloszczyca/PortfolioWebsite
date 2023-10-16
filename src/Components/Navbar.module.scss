@@ -1,0 +1,25 @@
+.navBar {
+  display: flex;
+  position: sticky;
+  background-color: #fdfbfb;
+  height: 1.5rem;
+  top: 0;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+  z-index: 5;
+  border-bottom: solid 0.1rem;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(-45deg, #743ad5, #d53a9d);
+}
+.active {
+  display: flex;
+  place-items: center;
+  position: relative;
+  top: 0.2rem;
+  max-width: 2rem;
+  background: linear-gradient(-45deg, #743ad5, #d53a9d);
+  height: 1.3rem;
+  padding: 1rem;
+  border-radius: 3rem 3rem 0 0;
+}

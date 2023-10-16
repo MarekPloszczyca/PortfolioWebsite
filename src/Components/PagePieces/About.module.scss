@@ -1,0 +1,153 @@
+.aboutContainer {
+  display: flex;
+  justify-content: center;
+  div {
+    display: none;
+    width: 80vw;
+    max-width: 60rem;
+    height: 13rem;
+    overflow: hidden;
+  }
+  %mark {
+    position: relative;
+    left: 100rem;
+    width: 5rem;
+    height: 5rem;
+    padding: 0 1rem;
+  }
+  .firstMark {
+    @extend %mark;
+    animation-name: first;
+    animation-duration:2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+  }
+  @keyframes first {
+    0% {
+      left: 100rem;
+      transform: rotate(10deg);
+    }
+    10% {
+      left: 11.2rem;
+      top:0.5rem;
+      transform: rotate(10deg);
+    }
+    20% {
+      left: 11.7rem;
+      top:1rem;
+      transform: rotate(200deg);
+    }
+    30% {
+      left: 12.2rem;
+      top:1.5rem;
+      transform: rotate(400deg);
+    }
+    40% {
+      left: 12.7rem;
+      top:2rem;
+      transform: rotate(600deg);
+    }
+    50% {
+      left: 13.2rem;
+      top:2.5rem;
+      transform: rotate(800deg);
+    }
+    60% {
+      left: 13.7rem;
+      top:3rem;
+      transform: rotate(1000deg);
+    }
+    70% {
+      left: 14.2rem;
+      top:3.5rem;
+      transform: rotate(1200deg);
+    }
+    80% {
+      left: 14.7rem;
+      top:4rem;
+      transform: rotate(1400deg);
+    }
+    90% {
+      left: 15.2rem;
+      top:4.5rem;
+      transform: rotate(1600deg);
+    }
+    100% {
+      left: 15.7rem;
+      top:5rem;
+      transform: rotate(1600deg);
+    }
+  }
+  .secondMark {
+    @extend %mark;
+    animation-name: second;
+    animation-delay: 1s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+  }
+  @keyframes second {
+    0% {
+        left: 100rem;
+        transform: rotate(-10deg);
+      }
+      10% {
+        left: 3.4rem;
+        top:0.5rem;
+        transform: rotate(-10deg);
+      }
+      20% {
+        left: 2.9rem;
+        top:1rem;
+        transform: rotate(-200deg);
+      }
+      30% {
+        left: 3.4rem;
+        top:1.5rem;
+        transform: rotate(-400deg);
+      }
+      40% {
+        left: 3.9rem;
+        top:2rem;
+        transform: rotate(-600deg);
+      }
+      50% {
+        left: 4.4rem;
+        top:2.5rem;
+        transform: rotate(-800deg);
+      }
+      60% {
+        left: 4.9rem;
+        top:3rem;
+        transform: rotate(-1000deg);
+      }
+      70% {
+        left: 5.4rem;
+        top:3.5rem;
+        transform: rotate(-1200deg);
+      }
+      80% {
+        left: 5.9rem;
+        top:4rem;
+        transform: rotate(-1400deg);
+      }
+      90% {
+        left: 6.4rem;
+        top:4.5rem;
+        transform: rotate(-1600deg);
+      }
+      100% {
+        left: 6.9rem;
+        top:5rem;
+        transform: rotate(-1600deg);
+      }
+  }
+  .bigMark{
+    width:10rem;
+  }
+}
+@media (min-width: 1024px) {
+  .aboutContainer div {
+    display: block;
+  }
+}

@@ -1,0 +1,8 @@
+.techGrid{
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat( auto-fill, minmax(15.51rem, 1fr) );
+}
+.more{
+    padding-top:5rem;
+}

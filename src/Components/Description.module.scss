@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+
+%circle {
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  opacity: 0.15;
+  content: "";
+  border: solid 1rem;
+}
+.description {
+  font-family: "Oswald", sans-serif;
+  position: relative;
+  text-align: justify;
+
+  bottom: 25rem;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  span:before {
+    @extend %circle;
+    top: 10rem;
+    width: 8rem;
+    height: 8rem;
+    border-color: #743ad5;
+  }
+}
+.description:before {
+  @extend %circle;
+  top: 25rem;
+  left: 3rem;
+  width: 11rem;
+  height: 11rem;
+  border-color: #d53a9d;
+}
+@media (min-width: 1024px) {
+  .description {
+    position: relative;
+    left: 15rem;
+    max-width: 40rem;
+    animation-name: move;
+    animation-duration: 1.85s;
+    animation-delay: 0.18s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes move {
+    0% {
+      left: 15rem;
+    }
+    50%{
+      left:13rem;
+    }
+    100% {
+      left: 10rem;
+    }
+  }
+}
