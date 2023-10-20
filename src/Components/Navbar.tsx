@@ -12,26 +12,27 @@ const iconStyle = {
   color: "#494949",
   height: "1.5rem",
   width: "1.5rem",
+  border:"none",
 };
 
 export default function Navbar() {
   return (
     <nav className={styles.navBar}>
-      <div className={styles.active}>
-        <HomeOutline style={iconStyle} />
-      </div>
-      <div>
+        <button className={styles.active}>
+          <HomeOutline style={iconStyle} />
+        </button>
+      <button>
         <InformationCircleOutline style={iconStyle} />
-      </div>
-      <div>
+      </button>
+      <button>
         <LayersOutline style={iconStyle} />
-      </div>
-      <div>
+      </button>
+      <button>
         <BriefcaseOutline style={iconStyle} />
-      </div>
-      <div>
+      </button>
+      <button>
         <MailOutline style={iconStyle} />
-      </div>
+      </button>
     </nav>
   );
 }

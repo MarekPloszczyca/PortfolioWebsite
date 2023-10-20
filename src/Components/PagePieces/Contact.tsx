@@ -8,15 +8,14 @@ export default function Contact() {
   return (
     <Fragment>
       <SectionTitle title="Contact" />
-      <footer className={styles.contact}>
-        <p>
+      <div className={styles.text}><p>
           If you have any questions or cooperation offers, feel free to message
           me
-        </p>
-        <ContactForm />
-        <Informations />
+        </p></div>
+      <footer className={styles.contact}>
+          <ContactForm />
+          <Informations />
       </footer>
-     
     </Fragment>
   );
 }

@@ -7,6 +7,7 @@
   max-width: 30rem;
   text-align: center;
   box-shadow: 0 0 6.5rem 1.25rem #42445a;
+  transition: 0.5s;
   img {
     width: 100%;
     height: auto;
@@ -36,5 +37,11 @@
         margin-right:0.5rem;
       }
     }
+  }
+}
+@media (min-width:1024px){
+  .project:hover{
+    
+    box-shadow: 0 0 6.5rem 1.25rem #d53a9d;
   }
 }

@@ -1,11 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
 
+.text {
+  width: 100%;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  p {
+    padding:0.5rem;
+  }
+}
+
+.contact {
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  padding: 0 1rem 2rem 1rem;
+}
+@media (min-width:1024px){
 .contact{
-    display: flex;
-    place-items: center;
-    flex-direction: column;
-    font-family: "Oswald", sans-serif;
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 0 1rem 2rem 1rem;
+  flex-direction: row;
+  padding:0;
+  margin:2rem;
+  background: linear-gradient(-45deg, #743ad5, #d53a9d);
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
 }
