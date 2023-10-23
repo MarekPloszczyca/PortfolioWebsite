@@ -6,6 +6,7 @@ import Css from "../Assets/css3.png";
 import Js from "../Assets/js.png";
 import React from "../Assets/react.png";
 import TypeScript from "../Assets/TypeScript.png";
+import RestAPI from "../Assets/restAPI.png";
 import Sass from "../Assets/sass.png";
 import Git from "../Assets/git.png";
 import Github from "../Assets/github.png";
@@ -30,6 +31,7 @@ const technologies = [
   new Tech(React, "React(incl. Redux & Router)"),
   new Tech(TypeScript, "TypeScript"),
   new Tech(Sass, "SCSS,SASS"),
+  new Tech(RestAPI, "RestAPI"),
   new Tech(Git, "Git"),
   new Tech(Github, "GitHub"),
   new Tech(Figma, "Figma"),
@@ -41,12 +43,7 @@ export default function TechGrid() {
   const techHandler = () => {
     const techMap = technologies.map((tech) => {
       return (
-        <Technology
-          key={tech.title}
-          icon={tech.icon}
-          title={tech.title}
-        
-        />
+        <Technology key={tech.title} icon={tech.icon} title={tech.title} />
       );
     });
     setTechGrid(techMap);
