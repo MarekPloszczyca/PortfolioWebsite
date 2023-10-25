@@ -63,6 +63,29 @@
     box-shadow: inset 0 0 1.25rem 1.25rem #ffffff33;
   }
 }
+.wrong{
+  background-color: #cc0303a7 !important;
+  border-color: rgb(255, 0, 0) !important;
+  position: relative;
+  animation-name: shake;
+  animation-duration: 0.3s;
+}
+@keyframes shake{
+  0%{
+    left:0
+  }25%{
+    left:0.2rem;
+  }
+  50%{
+    left:0
+  }
+  75%{
+    left:-0.2rem;
+  }
+  100%{
+    left:0;
+  }
+}
 @media (min-width: 1024px) {
   .contactForm {
     margin-top: 0;
