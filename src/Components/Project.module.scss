@@ -20,18 +20,19 @@
   }
   p {
     font-size: 1.2rem;
-    padding: 1rem 2rem;
+    padding: 1rem 1.2rem;
     text-align: justify;
   }
   div {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     p {
       display: flex;
       place-items: center;
       text-decoration: underline;
+      
       img{
         width:1.5rem;
         margin-right:0.5rem;
@@ -39,6 +40,12 @@
     }
   }
 }
+@media (max-width:375px){
+  .project div p {
+    font-size: 1rem;
+  }
+}
+
 @media (min-width:1024px){
   .project:hover{
     

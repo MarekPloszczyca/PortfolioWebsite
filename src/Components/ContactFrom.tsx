@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import styles from "./ContactForm.module.scss";
 import emailjs from "@emailjs/browser";
 import { useState, useEffect, useReducer, ChangeEvent } from "react";
@@ -30,11 +32,13 @@ const inputChange = (state, action) => {
   }
 };
 
-export default function ContactForm() {
+export default function ContactForm(props) {
   const [nameInput, setNameInput] = useState(true);
   const [emailInput, setEmailInput] = useState(true);
   const [messageInput, setMessageInput] = useState(true);
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [isSentOut, setIsSentOut] = useState(false);
 
   const [inputValues, dispatch] = useReducer(inputChange, {
     name: "",
@@ -73,16 +77,25 @@ export default function ContactForm() {
     setSubmitted(true);
   };
 
-  const sendEmail = (event: {
+  const sendEmail = async (event: {
     preventDefault: () => void;
     target: string | HTMLFormElement;
   }) => {
     event.preventDefault();
+    if (isSentOut) {
+      return;
+    }
     inputValidation();
     try {
       if (nameInput && emailInput && messageInput) {
-        // emailjs.sendForm(serviceID, templateID, event.target, publicKey);
-        console.log("send");
+        setIsSending(true);
+        setTimeout(() => {
+          setIsSending(false);
+          setIsSentOut(true);
+          event.target.reset();
+          props.mailSent();
+        }, 1000); // await emailjs.sendForm(serviceID, templateID, event.target, publicKey);
+        // setIsSending(false);
       }
     } catch (error) {
       console.log(error);
@@ -126,7 +139,17 @@ export default function ContactForm() {
         }}
       ></textarea>
       <button name="Submit" type="submit" onClick={submitHandler}>
-        SEND
+        {!isSending && !isSentOut && <p>SEND</p>}
+        {isSending && (
+          <div className={styles.loadingContainer}>
+            {isSending && <div className={styles.loading}></div>}
+          </div>
+        )}
+        {
+          <div>
+            {isSentOut && <span className={styles.tick}>&#10003;</span>}
+          </div>
+        }
       </button>
     </form>
   );

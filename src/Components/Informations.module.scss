@@ -10,6 +10,21 @@
     display: none;
   }
 }
+@keyframes display {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.mailSent h6 {
+
+  text-decoration: none !important;
+  animation-name: display;
+  animation-duration: 1s;
+}
+
 @media (min-width: 1024px) {
   .informations {
     color: #6c0145;
