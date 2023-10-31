@@ -1,9 +1,14 @@
-import styles from "./SectionTitle.module.scss"
+import styles from "./SectionTitle.module.scss";
 
 interface Props {
-  title: string;
+ 
+  id: string;
 }
 
 export default function SectionTitle(props: Props) {
-  return <div className={styles.title}><h3>{props.title}</h3></div>;
+  return (
+    <div className={styles.title} id={props.id}>
+      <h3>{props.id}</h3>
+    </div>
+  );
 }

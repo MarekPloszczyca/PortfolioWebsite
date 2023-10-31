@@ -12,15 +12,15 @@ export default function Contact() {
   };
   return (
     <Fragment>
-      <SectionTitle title="Contact" />
+      <SectionTitle id="Contact" />
       <div className={styles.text}>
         <p>
           If you have any questions or cooperation offers, feel free to message
           me
         </p>
       </div>
-      <footer className={styles.contact}>
-        <ContactForm mailSent={mailSent} />
+      <footer className={styles.contact} >
+        {!sentMail && <ContactForm mailSent={mailSent} />}
         <Informations sentMail={sentMail} />
       </footer>
     </Fragment>
