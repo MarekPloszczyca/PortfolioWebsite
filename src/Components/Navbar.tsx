@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import {
   HomeOutline,
   InformationCircleOutline,
@@ -7,7 +7,7 @@ import {
   BriefcaseOutline,
   MailOutline,
 } from "react-ionicons";
-import { SetStateAction, useReducer, useEffect, useCallback } from "react";
+import { useReducer, useEffect, useState } from "react";
 
 import styles from "./Navbar.module.scss";
 
@@ -18,10 +18,11 @@ const iconStyle = {
   border: "none",
 };
 
-const inputChange = (state, action) => {
+const inputChange = (state: any, action: { type: string }) => {
   switch (action.type) {
     case "home":
       return {
+        ...state,
         homeActive: true,
         aboutActive: false,
         techActive: false,
@@ -30,6 +31,7 @@ const inputChange = (state, action) => {
       };
     case "about":
       return {
+        ...state,
         homeActive: false,
         aboutActive: true,
         techActive: false,
@@ -38,6 +40,7 @@ const inputChange = (state, action) => {
       };
     case "tech":
       return {
+        ...state,
         homeActive: false,
         aboutActive: false,
         techActive: true,
@@ -46,6 +49,7 @@ const inputChange = (state, action) => {
       };
     case "projects":
       return {
+        ...state,
         homeActive: false,
         aboutActive: false,
         techActive: false,
@@ -54,6 +58,7 @@ const inputChange = (state, action) => {
       };
     case "contact":
       return {
+        ...state,
         homeActive: false,
         aboutActive: false,
         techActive: false,
@@ -64,7 +69,7 @@ const inputChange = (state, action) => {
 };
 
 interface Props {
-  distances: SetStateAction<number[]>;
+  refs: any;
 }
 
 export default function Navbar(props: Props) {
@@ -75,76 +80,97 @@ export default function Navbar(props: Props) {
     projectsActive: false,
     contactActive: false,
   });
+  const [distances, setDistances] = useState([]);
+ 
 
-  const activeNavbarHandler = (type: string) => {
-    dispatch({ type: type });
+  const activeNavbarHandler = (section: number) => {
+    props.refs[section].scrollIntoView();
   };
-  const scrollHandler = useCallback(() => {
-    const distances = props.distances;
-    const scrollDistance = window.scrollY;
-    console.log(distances,scrollDistance)
-  }, [props.distances]);
+
+  
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollHandler);
-  }, [scrollHandler]);
+    const array = props.refs.map(
+      (ref: {
+        getBoundingClientRect: () => { (): any; new (): any; y: number };
+      }) => {
+        return ref.getBoundingClientRect().y;
+      }
+    );
+    return setDistances((previous) => {
+      return previous.concat(array);
+    });
+  }, [props.refs]);
+
+  const scrollHandler = () => {
+    const windowScroll = window.scrollY+ 100;
+    if (windowScroll < distances[1]) {
+      return dispatch({ type: "home" });
+    }
+    if (windowScroll < distances[2]) {
+      return dispatch({ type: "about" });
+    }
+    if (windowScroll < distances[3]) {
+      return dispatch({ type: "tech" });
+    }
+    if (windowScroll < distances[4]) {
+      return dispatch({ type: "projects" });
+    }
+    if (windowScroll > distances[4]) {
+      return dispatch({ type: "contact" });
+    }
+  };
+
+
+  useEffect(() => {
+    window.removeEventListener("scroll", scrollHandler);
+    if (distances.length === 5) {
+      return window.addEventListener("scroll", scrollHandler);
+    }
+  }, [distances]);
+
   return (
     <nav className={styles.navBar}>
-      <a
-        href="#Home"
+      <button
         className={activeBars?.homeActive ? styles.active : undefined}
         onClick={() => {
-          activeNavbarHandler("home");
+          activeNavbarHandler(0);
         }}
       >
-        <button>
-          <HomeOutline style={iconStyle} />
-        </button>
-      </a>
-      <a
-        href="#About"
+        <HomeOutline style={iconStyle} />
+      </button>
+      <button
         className={activeBars?.aboutActive ? styles.active : undefined}
         onClick={() => {
-          activeNavbarHandler("about");
+          activeNavbarHandler(1);
         }}
       >
-        <button>
-          <InformationCircleOutline style={iconStyle} />
-        </button>
-      </a>
-      <a
-        href="#My Tech Stack"
+        <InformationCircleOutline style={iconStyle} />
+      </button>
+      <button
         className={activeBars?.techActive ? styles.active : undefined}
         onClick={() => {
-          activeNavbarHandler("tech");
+          activeNavbarHandler(2);
         }}
       >
-        <button>
-          <LayersOutline style={iconStyle} />
-        </button>
-      </a>
-      <a
-        href="#Projects"
+        <LayersOutline style={iconStyle} />
+      </button>
+      <button
         className={activeBars?.projectsActive ? styles.active : undefined}
         onClick={() => {
-          activeNavbarHandler("projects");
+          activeNavbarHandler(3);
         }}
       >
-        <button>
-          <BriefcaseOutline style={iconStyle} />
-        </button>
-      </a>
-      <a
-        href="#Contact"
+        <BriefcaseOutline style={iconStyle} />
+      </button>
+      <button
         className={activeBars?.contactActive ? styles.active : undefined}
         onClick={() => {
-          activeNavbarHandler("contact");
+          activeNavbarHandler(4);
         }}
       >
-        <button>
-          <MailOutline style={iconStyle} />
-        </button>
-      </a>
+        <MailOutline style={iconStyle} />
+      </button>
     </nav>
   );
 }

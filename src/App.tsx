@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./App.scss";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/PagePieces/Home";
@@ -15,26 +16,32 @@ import {
 } from "react";
 
 function App() {
-  const [distances, setDistances] = useState<SetStateAction<number[]>>([]);
+  const [refs, setDistances] = useState<
+    SetStateAction<MutableRefObject<null>[]>
+  >([]);
+  const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
   const techRef = useRef(null);
 
-  function sectionDistance(ref: MutableRefObject<null>) {
-    const distance: number = ref.current?.getBoundingClientRect().top;
-    setDistances((old: number[]) => [...old, distance]);
-  }
+  const sectionDistance = (ref: MutableRefObject<null>) => {
+    const forwardRef = ref.current;
+    setDistances((old: any) => [...old, forwardRef]);
+  };
+
   useEffect(() => {
-    sectionDistance(aboutRef);
-    sectionDistance(techRef);
-    sectionDistance(projectsRef);
-    sectionDistance(contactRef);
-  }, []);
+      sectionDistance(homeRef);
+      sectionDistance(aboutRef);
+      sectionDistance(techRef);
+      sectionDistance(projectsRef);
+      sectionDistance(contactRef); 
+  },[]);
+
   return (
     <Fragment>
-      <Navbar distances={distances} />
-      <Home />
+      <Navbar refs={refs} />
+      <Home myDivRef={homeRef} />
       <About aboutRef={aboutRef} />
       <TechStack techRef={techRef} />
       <Projects projectsRef={projectsRef} />
