@@ -7,7 +7,7 @@ import {
   BriefcaseOutline,
   MailOutline,
 } from "react-ionicons";
-import { useReducer } from "react";
+import { SetStateAction, useReducer, useEffect, useCallback } from "react";
 
 import styles from "./Navbar.module.scss";
 
@@ -63,7 +63,11 @@ const inputChange = (state, action) => {
   }
 };
 
-export default function Navbar() {
+interface Props {
+  distances: SetStateAction<number[]>;
+}
+
+export default function Navbar(props: Props) {
   const [activeBars, dispatch] = useReducer(inputChange, {
     homeActive: true,
     aboutActive: false,
@@ -75,6 +79,15 @@ export default function Navbar() {
   const activeNavbarHandler = (type: string) => {
     dispatch({ type: type });
   };
+  const scrollHandler = useCallback(() => {
+    const distances = props.distances;
+    const scrollDistance = window.scrollY;
+    console.log(distances,scrollDistance)
+  }, [props.distances]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+  }, [scrollHandler]);
   return (
     <nav className={styles.navBar}>
       <a
