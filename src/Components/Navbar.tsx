@@ -81,51 +81,73 @@ export default function Navbar(props: Props) {
     contactActive: false,
   });
   const [distances, setDistances] = useState([]);
- 
+  const [resized, setResized] = useState(false);
+  const [currentScroll, setCurrentScroll] = useState(0);
 
   const activeNavbarHandler = (section: number) => {
     props.refs[section].scrollIntoView();
   };
 
-  
+  useEffect(() => {
+    if (distances.length > 5) {
+      setDistances([]);
+    }
+  }, [distances.length]);
 
   useEffect(() => {
+    const resizeHandler = () => {
+      const resizing = () => {
+        resized ? setResized(false) : setResized(true);
+      };
+      let timeout = undefined;
+   
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+      timeout = setTimeout(resizing, 100);
+    };
+
+    if (resized) {
+      setCurrentScroll(window.scrollY);
+    }
+
+    window.addEventListener("resize", resizeHandler);
+
     const array = props.refs.map(
       (ref: {
-        getBoundingClientRect: () => { (): any; new (): any; y: number };
+        getBoundingClientRect: () => { (): any; new (): any; top: number };
       }) => {
-        return ref.getBoundingClientRect().y;
+        return ref.getBoundingClientRect().top;
       }
     );
     return setDistances((previous) => {
       return previous.concat(array);
     });
-  }, [props.refs]);
+  }, [props.refs, resized]);
 
   const scrollHandler = () => {
-    const windowScroll = window.scrollY+ 100;
-    if (windowScroll < distances[1]) {
+    const windowScroll = window.scrollY + 100;
+    if (windowScroll < distances[1] + currentScroll) {
       return dispatch({ type: "home" });
     }
-    if (windowScroll < distances[2]) {
+    if (windowScroll < distances[2] + currentScroll) {
       return dispatch({ type: "about" });
     }
-    if (windowScroll < distances[3]) {
+    if (windowScroll < distances[3] + currentScroll) {
       return dispatch({ type: "tech" });
     }
-    if (windowScroll < distances[4]) {
+    if (windowScroll < distances[4] + currentScroll) {
       return dispatch({ type: "projects" });
     }
-    if (windowScroll > distances[4]) {
+    if (windowScroll > distances[4] + currentScroll) {
       return dispatch({ type: "contact" });
     }
   };
 
-
   useEffect(() => {
     window.removeEventListener("scroll", scrollHandler);
     if (distances.length === 5) {
-      return window.addEventListener("scroll", scrollHandler);
+      window.addEventListener("scroll", scrollHandler);
     }
   }, [distances]);
 

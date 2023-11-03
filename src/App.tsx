@@ -25,17 +25,17 @@ function App() {
   const contactRef = useRef(null);
   const techRef = useRef(null);
 
-  const sectionDistance = (ref: MutableRefObject<null>) => {
+  const sectionRefs = (ref: MutableRefObject<null>) => {
     const forwardRef = ref.current;
     setDistances((old: any) => [...old, forwardRef]);
   };
 
   useEffect(() => {
-      sectionDistance(homeRef);
-      sectionDistance(aboutRef);
-      sectionDistance(techRef);
-      sectionDistance(projectsRef);
-      sectionDistance(contactRef); 
+      sectionRefs(homeRef);
+      sectionRefs(aboutRef);
+      sectionRefs(techRef);
+      sectionRefs(projectsRef);
+      sectionRefs(contactRef); 
   },[]);
 
   return (
