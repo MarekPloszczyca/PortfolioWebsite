@@ -89,8 +89,8 @@ export default function Navbar(props: Props) {
   };
 
   useEffect(() => {
-    if (distances.length > 5) {
-      setDistances([]);
+    if (distances.length === 5) {
+      setCurrentScroll(window.scrollY);
     }
   }, [distances.length]);
 
@@ -100,7 +100,6 @@ export default function Navbar(props: Props) {
         resized ? setResized(false) : setResized(true);
       };
       let timeout = undefined;
-   
       if (timeout) {
         clearTimeout(timeout);
       }
@@ -120,36 +119,33 @@ export default function Navbar(props: Props) {
         return ref.getBoundingClientRect().top;
       }
     );
-    return setDistances((previous) => {
-      return previous.concat(array);
-    });
+    return setDistances(array);
   }, [props.refs, resized]);
 
-  const scrollHandler = () => {
-    const windowScroll = window.scrollY + 100;
-    if (windowScroll < distances[1] + currentScroll) {
-      return dispatch({ type: "home" });
-    }
-    if (windowScroll < distances[2] + currentScroll) {
-      return dispatch({ type: "about" });
-    }
-    if (windowScroll < distances[3] + currentScroll) {
-      return dispatch({ type: "tech" });
-    }
-    if (windowScroll < distances[4] + currentScroll) {
-      return dispatch({ type: "projects" });
-    }
-    if (windowScroll > distances[4] + currentScroll) {
-      return dispatch({ type: "contact" });
-    }
-  };
-
   useEffect(() => {
+    const scrollHandler = () => {
+      const windowScroll = window.scrollY + 100;
+      if (windowScroll < distances[1] + currentScroll) {
+        return dispatch({ type: "home" });
+      }
+      if (windowScroll < distances[2] + currentScroll) {
+        return dispatch({ type: "about" });
+      }
+      if (windowScroll < distances[3] + currentScroll) {
+        return dispatch({ type: "tech" });
+      }
+      if (windowScroll < distances[4] + currentScroll) {
+        return dispatch({ type: "projects" });
+      }
+      if (windowScroll > distances[4] + currentScroll) {
+        return dispatch({ type: "contact" });
+      }
+    };
     window.removeEventListener("scroll", scrollHandler);
     if (distances.length === 5) {
       window.addEventListener("scroll", scrollHandler);
     }
-  }, [distances]);
+  }, [distances, currentScroll]);
 
   return (
     <nav className={styles.navBar}>
