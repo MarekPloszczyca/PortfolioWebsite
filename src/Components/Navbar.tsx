@@ -8,6 +8,8 @@ import {
   MailOutline,
 } from "react-ionicons";
 import { useReducer, useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { light, dark } from "../GlobalStates/store";
 
 import styles from "./Navbar.module.scss";
 
@@ -83,6 +85,8 @@ export default function Navbar(props: Props) {
   const [distances, setDistances] = useState([]);
   const [resized, setResized] = useState(false);
   const [currentScroll, setCurrentScroll] = useState(0);
+  const mode = useSelector((state: { dark: boolean }) => state.dark);
+  const modeHandler = useDispatch();
 
   const activeNavbarHandler = (section: number) => {
     props.refs[section].scrollIntoView();
@@ -91,8 +95,9 @@ export default function Navbar(props: Props) {
   useEffect(() => {
     if (distances.length === 5) {
       setCurrentScroll(window.scrollY);
+      console.log(mode);
     }
-  }, [distances.length]);
+  }, [distances.length, mode]);
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -188,6 +193,13 @@ export default function Navbar(props: Props) {
         }}
       >
         <MailOutline style={iconStyle} />
+      </button>
+      <button
+        onClick={() => {
+          mode ? modeHandler(light()) : modeHandler(dark());
+        }}
+      >
+        Test
       </button>
     </nav>
   );

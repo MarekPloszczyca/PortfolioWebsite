@@ -7,6 +7,7 @@ import Projects from "./Components/PagePieces/Projects";
 import Contact from "./Components/PagePieces/Contact";
 import { Fragment, useRef, useEffect, useState } from "react";
 
+
 function App() {
   const [refs, setRefs] = useState<null[]>([]);
   const homeRef = useRef(null);
@@ -27,14 +28,16 @@ function App() {
   }, [refs]);
 
   return (
-    <Fragment>
-      <Navbar refs={refs} />
-      <Home myDivRef={homeRef} />
-      <About aboutRef={aboutRef} />
-      <TechStack techRef={techRef} />
-      <Projects projectsRef={projectsRef} />
-      <Contact contactRef={contactRef} />
-    </Fragment>
+   
+      <Fragment>
+        <Navbar refs={refs} />
+        <Home myDivRef={homeRef} />
+        <About aboutRef={aboutRef} />
+        <TechStack techRef={techRef} />
+        <Projects projectsRef={projectsRef} />
+        <Contact contactRef={contactRef} />
+      </Fragment>
+  
   );
 }
 
