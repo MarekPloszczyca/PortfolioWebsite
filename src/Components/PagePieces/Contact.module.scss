@@ -14,19 +14,21 @@
   display: flex;
   place-items: center;
   flex-direction: column;
-
   text-align: center;
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
   padding: 0 1rem 2rem 1rem;
 }
+
 @media (min-width:1024px){
 .contact{
   flex-direction: row;
   padding:0;
-  margin:2rem;
   background: linear-gradient(-45deg, #743ad5, #d53a9d);
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
+}
+.formContainer{
+  padding:2rem;
 }
 }

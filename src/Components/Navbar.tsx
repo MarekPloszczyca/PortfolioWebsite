@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {
-  HomeOutline,
-  InformationCircleOutline,
-  LayersOutline,
-  BriefcaseOutline,
-  MailOutline,
+  Home,
+  InformationCircle,
+  Layers,
+  Briefcase,
+  Mail,
 } from "react-ionicons";
 import { useReducer, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +14,6 @@ import { light, dark } from "../GlobalStates/store";
 import styles from "./Navbar.module.scss";
 
 const iconStyle = {
-  color: "#494949",
   height: "1.5rem",
   width: "1.5rem",
   border: "none",
@@ -95,9 +94,8 @@ export default function Navbar(props: Props) {
   useEffect(() => {
     if (distances.length === 5) {
       setCurrentScroll(window.scrollY);
-      console.log(mode);
     }
-  }, [distances.length, mode]);
+  }, [distances.length]);
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -153,14 +151,14 @@ export default function Navbar(props: Props) {
   }, [distances, currentScroll]);
 
   return (
-    <nav className={styles.navBar}>
+    <nav className={mode ? styles.darkMode : styles.navBar}>
       <button
         className={activeBars?.homeActive ? styles.active : undefined}
         onClick={() => {
           activeNavbarHandler(0);
         }}
       >
-        <HomeOutline style={iconStyle} />
+        <Home color={mode ? "#acacac" : "#1c1c1c"} style={iconStyle} />
       </button>
       <button
         className={activeBars?.aboutActive ? styles.active : undefined}
@@ -168,7 +166,10 @@ export default function Navbar(props: Props) {
           activeNavbarHandler(1);
         }}
       >
-        <InformationCircleOutline style={iconStyle} />
+        <InformationCircle
+          color={mode ? "#acacac" : "#1c1c1c"}
+          style={iconStyle}
+        />
       </button>
       <button
         className={activeBars?.techActive ? styles.active : undefined}
@@ -176,7 +177,7 @@ export default function Navbar(props: Props) {
           activeNavbarHandler(2);
         }}
       >
-        <LayersOutline style={iconStyle} />
+        <Layers color={mode ? "#acacac" : "#1c1c1c"} style={iconStyle} />
       </button>
       <button
         className={activeBars?.projectsActive ? styles.active : undefined}
@@ -184,7 +185,7 @@ export default function Navbar(props: Props) {
           activeNavbarHandler(3);
         }}
       >
-        <BriefcaseOutline style={iconStyle} />
+        <Briefcase color={mode ? "#acacac" : "#1c1c1c"} style={iconStyle} />
       </button>
       <button
         className={activeBars?.contactActive ? styles.active : undefined}
@@ -192,7 +193,7 @@ export default function Navbar(props: Props) {
           activeNavbarHandler(4);
         }}
       >
-        <MailOutline style={iconStyle} />
+        <Mail color={mode ? "#acacac" : "#1c1c1c"} style={iconStyle} />
       </button>
       <button
         onClick={() => {

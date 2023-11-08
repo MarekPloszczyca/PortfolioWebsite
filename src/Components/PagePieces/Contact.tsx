@@ -23,10 +23,10 @@ export default function Contact(props: Props) {
           me
         </p>
       </div>
-      <footer className={styles.contact}>
+      <div className={styles.formContainer}><footer className={styles.contact}>
         <ContactForm mailSent={mailSent} />
         <Informations sentMail={sentMail} />
-      </footer>
+      </footer></div>
     </Fragment>
   );
 }

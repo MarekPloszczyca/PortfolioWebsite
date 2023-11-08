@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-.title {
+%title {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -14,5 +14,15 @@
     max-width: 20rem;
     border-bottom: solid 0.2rem #070707;
     color: #303030;
+  }
+}
+.title {
+  @extend %title;
+}
+.darkModeTitle {
+  @extend %title;
+  h3 {
+    color: #989898;
+    border-color: #989898;
   }
 }
