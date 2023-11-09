@@ -1,15 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-%headerContainer {
+.headerContainer {
   position: relative;
   bottom: 12rem;
   padding: 2rem;
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 0.1rem;
   color: #303030;
-}
-.headerContainer {
-  @extend %headerContainer;
 }
 .header {
   display: flex;
@@ -22,7 +19,7 @@
 }
 
 .name {
-  background: -webkit-linear-gradient(#743ad5, #d53a9d);
+  background: -webkit-linear-gradient(#9994a2, #d53a9d);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -32,11 +29,11 @@
   padding: 0 0.2rem;
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
-  background-image: linear-gradient(#743ad5, #d53a9d);
+  background-image: linear-gradient(#9994a2, #d53a9d);
 }
 .darkModeHeader{
-  @extend %headerContainer;
-  color:#989898
+  @extend .headerContainer;
+  color:#d8d7d7
 }
 @media (min-width: 1024px) {
   .header {

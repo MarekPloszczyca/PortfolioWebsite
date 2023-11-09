@@ -20,14 +20,22 @@
   padding: 0 1rem 2rem 1rem;
 }
 
+.darkModeContact{
+  @extend .contact;
+ 
+}
 @media (min-width:1024px){
 .contact{
   flex-direction: row;
   padding:0;
-  background: linear-gradient(-45deg, #743ad5, #d53a9d);
+  background: linear-gradient(45deg, #a294a0, #f0f0f0);
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
 }
+.darkModeContact{
+  background: linear-gradient(115deg, #9994a2, #000000) !important;
+}
+
 .formContainer{
   padding:2rem;
 }

@@ -7,7 +7,7 @@ import {
   Briefcase,
   Mail,
 } from "react-ionicons";
-import { useReducer, useEffect, useState } from "react";
+import { useReducer, useEffect, useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { light, dark } from "../GlobalStates/store";
 
@@ -88,6 +88,9 @@ export default function Navbar(props: Props) {
   const modeHandler = useDispatch();
 
   const activeNavbarHandler = (section: number) => {
+    if (section === 0) {
+      return window.scrollTo(0, 0);
+    }
     props.refs[section].scrollIntoView();
   };
 
@@ -127,7 +130,7 @@ export default function Navbar(props: Props) {
 
   useEffect(() => {
     const scrollHandler = () => {
-      const windowScroll = window.scrollY + 100;
+      const windowScroll = window.scrollY + 200;
       if (windowScroll < distances[1] + currentScroll) {
         return dispatch({ type: "home" });
       }
@@ -151,57 +154,90 @@ export default function Navbar(props: Props) {
   }, [distances, currentScroll]);
 
   return (
-    <nav className={mode ? styles.darkMode : styles.navBar}>
-      <button
-        className={activeBars?.homeActive ? styles.active : undefined}
-        onClick={() => {
-          activeNavbarHandler(0);
-        }}
-      >
-        <Home color={mode ? "#acacac" : "#1c1c1c"} style={iconStyle} />
-      </button>
-      <button
-        className={activeBars?.aboutActive ? styles.active : undefined}
-        onClick={() => {
-          activeNavbarHandler(1);
-        }}
-      >
-        <InformationCircle
-          color={mode ? "#acacac" : "#1c1c1c"}
-          style={iconStyle}
-        />
-      </button>
-      <button
-        className={activeBars?.techActive ? styles.active : undefined}
-        onClick={() => {
-          activeNavbarHandler(2);
-        }}
-      >
-        <Layers color={mode ? "#acacac" : "#1c1c1c"} style={iconStyle} />
-      </button>
-      <button
-        className={activeBars?.projectsActive ? styles.active : undefined}
-        onClick={() => {
-          activeNavbarHandler(3);
-        }}
-      >
-        <Briefcase color={mode ? "#acacac" : "#1c1c1c"} style={iconStyle} />
-      </button>
-      <button
-        className={activeBars?.contactActive ? styles.active : undefined}
-        onClick={() => {
-          activeNavbarHandler(4);
-        }}
-      >
-        <Mail color={mode ? "#acacac" : "#1c1c1c"} style={iconStyle} />
-      </button>
-      <button
-        onClick={() => {
-          mode ? modeHandler(light()) : modeHandler(dark());
-        }}
-      >
-        Test
-      </button>
-    </nav>
+    <Fragment>
+      <nav className={mode ? styles.darkMode : styles.navBar}>
+        <button
+          className={
+            activeBars?.homeActive
+              ? mode
+                ? styles.darkModeActive
+                : styles.active
+              : undefined
+          }
+          onClick={() => {
+            activeNavbarHandler(0);
+          }}
+        >
+          <Home color={mode ? "#d8d7d7" : "#1c1c1c"} style={iconStyle} />
+        </button>
+        <button
+          className={
+            activeBars?.aboutActive
+              ? mode
+                ? styles.darkModeActive
+                : styles.active
+              : undefined
+          }
+          onClick={() => {
+            activeNavbarHandler(1);
+          }}
+        >
+          <InformationCircle
+            color={mode ? "#d8d7d7" : "#1c1c1c"}
+            style={iconStyle}
+          />
+        </button>
+        <button
+          className={
+            activeBars?.techActive
+              ? mode
+                ? styles.darkModeActive
+                : styles.active
+              : undefined
+          }
+          onClick={() => {
+            activeNavbarHandler(2);
+          }}
+        >
+          <Layers color={mode ? "#d8d7d7" : "#1c1c1c"} style={iconStyle} />
+        </button>
+        <button
+          className={
+            activeBars?.projectsActive
+              ? mode
+                ? styles.darkModeActive
+                : styles.active
+              : undefined
+          }
+          onClick={() => {
+            activeNavbarHandler(3);
+          }}
+        >
+          <Briefcase color={mode ? "#d8d7d7" : "#1c1c1c"} style={iconStyle} />
+        </button>
+        <button
+          className={
+            activeBars?.contactActive
+              ? mode
+                ? styles.darkModeActive
+                : styles.active
+              : undefined
+          }
+          onClick={() => {
+            activeNavbarHandler(4);
+          }}
+        >
+          <Mail color={mode ? "#d8d7d7" : "#1c1c1c"} style={iconStyle} />
+        </button>
+      </nav>
+      <div className={styles.modeButtonContainer}>
+        <button
+          className={mode ? styles.darkModeButton : styles.modeButton}
+          onClick={() => {
+            mode ? modeHandler(light()) : modeHandler(dark());
+          }}
+        ></button>
+      </div>
+    </Fragment>
   );
 }

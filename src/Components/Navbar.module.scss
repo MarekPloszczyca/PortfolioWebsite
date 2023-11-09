@@ -1,4 +1,4 @@
-%navBar {
+.navBar {
   display: flex;
   position: sticky;
   background-color: #f0f0f0;
@@ -11,13 +11,13 @@
   z-index: 5;
   border-bottom: solid 0.1rem;
   border-image-slice: 1;
-  border-image-source: linear-gradient(-45deg, #743ad5, #d53a9d);
+  border-image-source: linear-gradient(-45deg, #a294a0, #f0f0f0);
   a {
     display: flex;
     justify-content: center;
     align-items: center;
   }
- 
+
   button {
     background: none;
     border: none;
@@ -27,22 +27,87 @@
   }
 }
 
-.navBar {
-  @extend %navBar;
-}
-.cl{
-  color:#ffffff
+.cl {
+  color: #ffffff;
 }
 .active {
   position: relative;
-  top: 0.2rem;
-  background: linear-gradient(-45deg, #743ad5, #d53a9d) !important;
+  top: 0.15rem;
+  background: linear-gradient(-45deg, #a294a0, #f0f0f0) !important;
   height: 3.2rem;
   width: 40%;
   border-radius: 3rem 3rem 0 0;
 }
+.modeButtonContainer {
+  position: sticky;
+  top: 3.6rem;
+  height:6rem;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  z-index: 10;
+}
+.modeButton {
+  position: sticky;
+  right: 3rem;
+  bottom:12rem;
+  background-color: #a294a0;
+  height: 3rem;
+  width: 0.1rem;
+  border: none;
+}
+.modeButton:focus {
+  outline: none;
+}
+.modeButton::after {
+  display: block;
+  position: relative;
+  content: "";
+  right: 0.7rem;
+  top: 2.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  border: solid 0.1rem #e4d60c;
+  background-image: linear-gradient(-45deg, #e4d60c, #ffffff);
+  box-shadow:0.1rem -1.5rem 3rem 0.5rem #e4d60c;
+  transition: 1s;
+}
+
+.darkModeButton{
+  @extend .modeButton;
+}
+.darkModeButton::after{
+  box-shadow: none;
+  background-image: linear-gradient(-45deg, #030303, #808080);
+  border-color: #7a7a7a;
+}
+
 
 .darkMode {
-  @extend %navBar;
+  @extend .navBar;
   background-color: #191919;
+  border-image-source: linear-gradient(-45deg, #9994a2, #9994a2);
+}
+.darkModeActive {
+  @extend .active;
+  background: linear-gradient(-45deg, #9994a2, #000000) !important;
+}
+@media (min-width:1024px){
+  .modeButton:hover{
+    cursor: pointer;
+  }
+  .modeButton:hover.modeButton::after{
+    box-shadow: none;
+    background-image: linear-gradient(-45deg, #ffffff, #fffcfc);
+    border-color: #a294a0;
+    transition: 1s;
+  }
+  .darkModeButton:hover.darkModeButton::after{
+    background-image: linear-gradient(-45deg, #e4d60c, #ffffff);
+    border-color: #e4d60c;
+    box-shadow:0.1rem -1.5rem 3rem 0.5rem #e4d60c;
+    transition: 1s;
+  }
 }

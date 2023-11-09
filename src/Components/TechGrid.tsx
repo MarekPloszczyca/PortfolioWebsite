@@ -9,7 +9,7 @@ import TypeScript from "../Assets/TypeScript.png";
 import RestAPI from "../Assets/restAPI.png";
 import Sass from "../Assets/sass.png";
 import Git from "../Assets/git.png";
-import Github from "../Assets/github.png";
+import Github from "../Assets/github-light.png";
 import Figma from "../Assets/figma.png";
 
 import styles from "./TechGrid.module.scss";

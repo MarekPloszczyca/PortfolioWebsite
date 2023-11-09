@@ -11,12 +11,14 @@
   }
 }
 
+
+
 .homeImage::before {
   display: block;
   content: "";
   width: 13.4rem;
   height: 13.4rem;
-  background: linear-gradient(to top, #743ad5, #d53a9d);
+  background: linear-gradient(to top, #9994a2, #d53a9d);
   border-radius: 50%;
 }
 @media (min-width: 1024px) {

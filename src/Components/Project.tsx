@@ -1,9 +1,13 @@
 import styles from "./Project.module.scss";
 import Dummy from "../Assets/dummy.jpg";
-import LinkIcon from "../Assets/link.png";
-import GitHub from "../Assets/github.png";
+import LinkLightIcon from "../Assets/link-light.png";
+import LinkDarkIcon from "../Assets/link-dark.png";
+import GitHubLight from "../Assets/github-light.png";
+import GitHubDark from "../Assets/github-dark.png";
+import { useSelector } from "react-redux";
 
 export default function Project() {
+  const mode = useSelector((state: { dark: boolean }) => state.dark);
   return (
     <div className={styles.project}>
       <img src={Dummy}></img>
@@ -19,10 +23,10 @@ export default function Project() {
       </p>
       <div>
         <p>
-          <img src={LinkIcon}></img>Live preview
+          <img src={mode ? LinkDarkIcon : LinkLightIcon}></img>Live preview
         </p>
         <p>
-          <img src={GitHub}></img>View code
+          <img src={mode ? GitHubDark : GitHubLight}></img>View code
         </p>
       </div>
     </div>

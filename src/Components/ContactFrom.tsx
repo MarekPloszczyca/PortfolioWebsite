@@ -3,6 +3,7 @@
 import styles from "./ContactForm.module.scss";
 import emailjs from "@emailjs/browser";
 import { useState, useEffect, useReducer, ChangeEvent } from "react";
+import { useSelector } from "react-redux";
 
 const serviceID = "PortfolioWebsite";
 const templateID = "template_x2slm9n";
@@ -39,6 +40,7 @@ export default function ContactForm(props) {
   const [submitted, setSubmitted] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [isSentOut, setIsSentOut] = useState(false);
+  const mode = useSelector((state: { dark: boolean }) => state.dark);
 
   const [inputValues, dispatch] = useReducer(inputChange, {
     name: "",
@@ -103,9 +105,18 @@ export default function ContactForm(props) {
   };
 
   return (
-    <form className={styles.contactForm} onSubmit={sendEmail}>
+    <form
+      className={mode ? styles.darkModeContactForm : styles.contactForm}
+      onSubmit={sendEmail}
+    >
       <input
-        className={submitted && !nameInput ? styles.wrong : undefined}
+        className={
+          submitted && !nameInput
+            ? mode
+              ? styles.darkModeWrong
+              : styles.wrong
+            : undefined
+        }
         name="name"
         type="text"
         placeholder="NAME"
@@ -117,7 +128,13 @@ export default function ContactForm(props) {
         }}
       ></input>
       <input
-        className={submitted && !emailInput ? styles.wrong : undefined}
+        className={
+          submitted && !emailInput
+            ? mode
+              ? styles.darkModeWrong
+              : styles.wrong
+            : undefined
+        }
         name="email"
         type="email"
         placeholder="EMAIL"
@@ -129,7 +146,13 @@ export default function ContactForm(props) {
         }}
       ></input>
       <textarea
-        className={submitted && !messageInput ? styles.wrong : undefined}
+        className={
+          submitted && !messageInput
+            ? mode
+              ? styles.darkModeWrong
+              : styles.wrong
+            : undefined
+        }
         name="message"
         placeholder="YOUR MESSAGE"
         onChange={messageInputHandler}
@@ -142,12 +165,20 @@ export default function ContactForm(props) {
         {!isSending && !isSentOut && <p>SEND</p>}
         {isSending && (
           <div className={styles.loadingContainer}>
-            {isSending && <div className={styles.loading}></div>}
+            {isSending && (
+              <div
+                className={mode ? styles.darkModeLoading : styles.loading}
+              ></div>
+            )}
           </div>
         )}
         {
           <div>
-            {isSentOut && <span className={styles.tick}>&#10003;</span>}
+            {isSentOut && (
+              <span className={mode ? styles.darkModeTick : styles.tick}>
+                &#10003;
+              </span>
+            )}
           </div>
         }
       </button>

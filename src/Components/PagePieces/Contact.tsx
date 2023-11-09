@@ -1,4 +1,5 @@
 import { Fragment, useState, MutableRefObject } from "react";
+import { useSelector } from "react-redux";
 import SectionTitle from "../SectionTitle";
 import styles from "./Contact.module.scss";
 import ContactForm from "../ContactFrom";
@@ -10,6 +11,7 @@ interface Props {
 
 export default function Contact(props: Props) {
   const [sentMail, setSentMail] = useState(false);
+  const mode = useSelector((state: { dark: boolean }) => state.dark);
 
   const mailSent = () => {
     setSentMail(true);
@@ -23,10 +25,12 @@ export default function Contact(props: Props) {
           me
         </p>
       </div>
-      <div className={styles.formContainer}><footer className={styles.contact}>
-        <ContactForm mailSent={mailSent} />
-        <Informations sentMail={sentMail} />
-      </footer></div>
+      <div className={styles.formContainer}>
+        <footer className={mode ? styles.darkModeContact : styles.contact}>
+          <ContactForm mailSent={mailSent} />
+          <Informations sentMail={sentMail} />
+        </footer>
+      </div>
     </Fragment>
   );
 }
