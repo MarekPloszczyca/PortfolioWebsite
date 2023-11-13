@@ -1,11 +1,82 @@
 .projectGrid {
   display: grid;
   place-items: center;
-  row-gap:5.5rem;
+  row-gap: 5.5rem;
+  column-gap: -12rem;
+  overflow: hidden;
+  padding: 9rem 0;
 }
 
-@media (min-width:768px){
-  .projectGrid{
+.leftOne {
+  transform: translateX(-360%);
+}
+.firstDisplayed {
+  @extend .leftOne;
+  animation-name: left;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: left;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+}
+.leftTwo {
+  @extend .leftOne;
+  @extend .firstDisplayed;
+}
+
+@keyframes left {
+  from {
+    transform: translateX(-360%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes left {
+  from {
+    transform: translateX(-360%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.rightOne {
+  transform: translateX(360%);
+}
+.secondDisplayed {
+  @extend .rightOne;
+  animation-name: right;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: right;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+}
+.rightTwo {
+  @extend .rightOne;
+  @extend .secondDisplayed;
+}
+@keyframes right {
+  from {
+    transform: translateX(360%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes right {
+  from {
+    transform: translateX(360%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .projectGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }

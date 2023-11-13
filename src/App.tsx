@@ -17,6 +17,9 @@ function App() {
   const contactRef = useRef(null);
   const techRef = useRef(null);
   const mode = useSelector((state: { dark: boolean }) => state.dark);
+  const [aboutScroll, setAboutScroll] = useState(false);
+  const [projectsFirstScroll, setProjectsFirstScroll] = useState(false);
+  const [projectsSecondScroll, setProjectsSecondScroll] = useState(false);
 
   useEffect(() => {
     if (refs.length === 5) {
@@ -29,14 +32,34 @@ function App() {
     setRefs(array);
   }, [refs]);
 
+  const aboutAnimation = () => {
+    setAboutScroll(true);
+  };
+
+  const projectsFirstAnimation = () => {
+    setProjectsFirstScroll(true);
+  };
+  const projectsSecondAnimation = () => {
+    setProjectsSecondScroll(true);
+  };
+
   return (
-    <div className={mode ? styles.dark : undefined}>
-      <Navbar refs={refs} />
+    <div className={mode ? styles.dark : styles.light}>
+      <Navbar
+        refs={refs}
+        aboutAnimation={aboutAnimation}
+        firstProjectsAnimation={projectsFirstAnimation}
+        secondProjectsAnimation={projectsSecondAnimation}
+      />
       <Home myDivRef={homeRef} />
-      <About aboutRef={aboutRef} />
+      <About aboutRef={aboutRef} aboutScrolled={aboutScroll} />
       <TechStack techRef={techRef} />
-      <Projects projectsRef={projectsRef} />
-     <Contact contactRef={contactRef} />
+      <Projects
+        projectsRef={projectsRef}
+        projectsFirstDisplay={projectsFirstScroll}
+        projectsSecondDisplay={projectsSecondScroll}
+      />
+      <Contact contactRef={contactRef} />
     </div>
   );
 }

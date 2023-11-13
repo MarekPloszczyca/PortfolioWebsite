@@ -6,10 +6,14 @@ import GitHubLight from "../Assets/github-light.png";
 import GitHubDark from "../Assets/github-dark.png";
 import { useSelector } from "react-redux";
 
-export default function Project() {
+interface Props {
+  style: string | undefined;
+}
+
+export default function Project(props: Props) {
   const mode = useSelector((state: { dark: boolean }) => state.dark);
   return (
-    <div className={styles.project}>
+    <div className={`${props.style} + ${styles.project}`}>
       <img src={Dummy}></img>
       <h5>Project title goes here</h5>
       <p>

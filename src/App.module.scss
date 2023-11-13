@@ -2,12 +2,18 @@
   margin: 0;
   padding: 0;
 }
-html{
+html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
-.dark{
+.dark {
   background-color: #262626;
-  color:#ededed;
+  color: #ededed;
   z-index: -3;
+  transition: 0.5s;
 }
-
+.light{
+  background-color: #ffffff;
+  transition: 0.5s;
+  color:#000000;
+}

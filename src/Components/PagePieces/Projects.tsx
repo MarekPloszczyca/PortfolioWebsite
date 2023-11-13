@@ -5,13 +5,15 @@ import { MutableRefObject } from "react";
 
 interface Props {
   projectsRef: MutableRefObject<null>;
+  projectsFirstDisplay:boolean;
+  projectsSecondDisplay:boolean;
 }
 
 export default function Projects(props: Props) {
   return (
     <div className={styles.projects}>
       <SectionTitle id="Projects" myDivRef={props.projectsRef}></SectionTitle>
-      <ProjectGrid />
+      <ProjectGrid projectsFirstDisplay={props.projectsFirstDisplay} projectsSecondDisplay={props.projectsSecondDisplay}/>
     </div>
   );
 }

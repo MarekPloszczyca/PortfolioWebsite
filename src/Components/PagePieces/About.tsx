@@ -6,15 +6,20 @@ import { MutableRefObject } from "react";
 
 interface Props {
   aboutRef: MutableRefObject<null>;
+  aboutScrolled: boolean;
 }
 
 export default function About(props: Props) {
   return (
     <div>
       <SectionTitle id="About" myDivRef={props.aboutRef} />
-      <div className={styles.aboutContainer}>
-        <Description />
-        <div>
+      <div
+        className={
+          props.aboutScrolled ? styles.displayed : styles.aboutContainer
+        }
+      >
+        <Description aboutScrolled={props.aboutScrolled} />
+        <div className={props.aboutScrolled ? styles.animated : undefined}>
           <img src={aboutImage}></img>
         </div>
       </div>

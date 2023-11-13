@@ -71,6 +71,9 @@ const inputChange = (state: any, action: { type: string }) => {
 
 interface Props {
   refs: any;
+  aboutAnimation: () => void;
+  firstProjectsAnimation: () => void;
+  secondProjectsAnimation: () => void;
 }
 
 export default function Navbar(props: Props) {
@@ -130,6 +133,15 @@ export default function Navbar(props: Props) {
 
   useEffect(() => {
     const scrollHandler = () => {
+      if (distances[1] - 500 < window.scrollY) {
+        props.aboutAnimation();
+      }
+      if (distances[3] - 700 < window.scrollY) {
+        props.firstProjectsAnimation();
+      }
+      if (distances[3] +   100 < window.scrollY) {
+        props.secondProjectsAnimation();
+      }
       const windowScroll = window.scrollY + 200;
       if (windowScroll < distances[1] + currentScroll) {
         return dispatch({ type: "home" });
@@ -151,7 +163,7 @@ export default function Navbar(props: Props) {
     if (distances.length === 5) {
       window.addEventListener("scroll", scrollHandler);
     }
-  }, [distances, currentScroll]);
+  }, [distances, currentScroll, props]);
 
   return (
     <Fragment>
