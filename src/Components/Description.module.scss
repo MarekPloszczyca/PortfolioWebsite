@@ -16,7 +16,7 @@
   bottom: 25rem;
   overflow: hidden;
   font-size: 1.5rem;
-  padding: 0 1rem;
+  padding: 0 1rem 4rem 1rem;
   z-index: 3;
   opacity:0;
  
@@ -105,5 +105,6 @@
 @media (min-width: 1024px) {
   .description {
     max-width: 40rem;
+    bottom:22rem;
   }
 }

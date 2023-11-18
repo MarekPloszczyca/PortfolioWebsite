@@ -1,6 +1,7 @@
 .aboutContainer {
   display: flex;
   justify-content: center;
+ 
   div {
     display: none;
     max-width: 60rem;
@@ -82,7 +83,12 @@
   }
 }
 @media (min-width: 1024px) {
+  .aboutContainer{
+    overflow: hidden;
+  }
   .aboutContainer div {
     display: block;
+    position: relative;
+    top:2.9rem;
   }
 }

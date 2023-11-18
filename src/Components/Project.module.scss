@@ -32,23 +32,45 @@
       display: flex;
       place-items: center;
       text-decoration: underline;
-      
-      img{
-        width:1.5rem;
-        margin-right:0.5rem;
+
+      img {
+        width: 1.5rem;
+        margin-right: 0.5rem;
       }
     }
   }
 }
-@media (max-width:375px){
+
+@media (max-width: 375px) {
   .project div p {
     font-size: 1rem;
   }
 }
 
-@media (min-width:1024px){
-  .project:hover{
-    
+@media (min-width: 1024px) {
+  .project:hover {
     box-shadow: 0 0 6.5rem 1.25rem #d53a9d;
+  }
+
+  .project div p:hover {
+    cursor: pointer;
+  }
+
+  .project div p:hover img {
+    position: relative;
+    animation-name: hover;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes hover {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: 0.2rem;
+    }
+    100% {
+      left: 0;
+    }
   }
 }
