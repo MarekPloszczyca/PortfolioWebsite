@@ -20,7 +20,7 @@ interface Props {
 const projects = {
   zimka: {
     title: "Maciej Zimka Website",
-    description: "",
+    description: "Strona powstała we współpracy z akordeonistą koncertującym ",
     screenshots: [ZimkaOne, ZimkaTwo, ZimkaThree],
   },
   mtg: {

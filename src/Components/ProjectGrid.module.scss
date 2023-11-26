@@ -1,5 +1,6 @@
 .projectGrid {
   display: grid;
+ 
   place-items: center;
   row-gap: 5.5rem;
   column-gap: -12rem;
@@ -9,6 +10,7 @@
 
 .leftOne {
   transform: translateX(-360%);
+  height: 100%;
 }
 .firstDisplayed {
   @extend .leftOne;
@@ -42,6 +44,7 @@
 }
 .rightOne {
   transform: translateX(360%);
+  height: 100%;
 }
 .secondDisplayed {
   @extend .rightOne;

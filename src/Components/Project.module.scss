@@ -28,11 +28,16 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    p {
+  }
+  .descriptionContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+    height:100%;
+    div p{
       display: flex;
       place-items: center;
       text-decoration: underline;
-
       img {
         width: 1.5rem;
         margin-right: 0.5rem;
@@ -52,11 +57,11 @@
     box-shadow: 0 0 6.5rem 1.25rem #d53a9d;
   }
 
-  .project div p:hover {
+  .descriptionContainer div p:hover {
     cursor: pointer;
   }
 
-  .project div p:hover img {
+  .descriptionContainer div p:hover img {
     position: relative;
     animation-name: hover;
     animation-duration: 1s;

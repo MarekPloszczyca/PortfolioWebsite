@@ -49,7 +49,7 @@ export default function Project(props: Props) {
       className={`${props.style} + ${styles.project}`}
     >
       <img src={props.screenshots[slideNumber]}></img>
-      <h5>{props.title}</h5>
+      <div className={styles.descriptionContainer}><h5>{props.title}</h5>
       <p>
      {props.description}
       </p>
@@ -60,7 +60,7 @@ export default function Project(props: Props) {
         <p>
           <img src={mode ? GitHubDark : GitHubLight}></img>View code
         </p>
-      </div>
+      </div></div>
     </div>
   );
 }
