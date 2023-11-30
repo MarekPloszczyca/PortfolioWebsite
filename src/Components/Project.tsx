@@ -11,6 +11,8 @@ interface Props {
   screenshots: string[];
   title:string;
   description:string;
+  liveHref:string;
+  codeHref:string;
 }
 
 export default function Project(props: Props) {
@@ -54,12 +56,12 @@ export default function Project(props: Props) {
      {props.description}
       </p>
       <div>
-        <p>
+      <a href={props.liveHref} target="_blank"> <p>
           <img src={mode ? LinkDarkIcon : LinkLightIcon}></img>Live preview
-        </p>
-        <p>
-          <img src={mode ? GitHubDark : GitHubLight}></img>View code
-        </p>
+        </p></a>
+        <a href={props.codeHref} target="_blank"> <p>
+         <img src={mode ? GitHubDark : GitHubLight}></img>View code
+        </p></a>
       </div></div>
     </div>
   );

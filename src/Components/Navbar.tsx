@@ -136,7 +136,7 @@ export default function Navbar(props: Props) {
       if (distances[1] - 500 < window.scrollY) {
         props.aboutAnimation();
       }
-      if (distances[3] - 700 < window.scrollY) {
+      if (distances[3] - 500 < window.scrollY) {
         props.firstProjectsAnimation();
       }
       if (distances[3] +   100 < window.scrollY) {

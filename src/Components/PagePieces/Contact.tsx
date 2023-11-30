@@ -21,8 +21,8 @@ export default function Contact(props: Props) {
       <SectionTitle id="Contact" myDivRef={props.contactRef} />
       <div className={styles.text}>
         <p>
-          If you have any questions or cooperation offers, feel free to message
-          me
+          If you have any questions, cooperation offers or suggestions, feel
+          free to message me
         </p>
       </div>
       <div className={styles.formContainer}>
