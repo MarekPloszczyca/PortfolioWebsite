@@ -24,7 +24,7 @@ const projects = {
       "The website was created in cooperation with an accordionist who performs successfully not only in Poland, but also throughout Europe. This is an extensive artist's business card, consisting of several subpages where we can learn more about the musician, his work and future concerts. The user can also listen to selected artist's music on a popular streaming platform and purchase available CDs. (Due to waiting for access to the rest of the materials and links, some of the functions available on the website (e.g. changing the language) are not yet active, work on the website is still in progress).",
     screenshots: [ZimkaOne, ZimkaTwo, ZimkaThree],
     codeHref:"https://github.com/Marekplo/maciej-zimka",
-    liveHref:""
+    liveHref:"https://marekplo.github.io/maciej-zimka/"
   },
   mtg: {
     title: "Magic: The Gathering Database",
@@ -63,6 +63,7 @@ export default function ProjectGrid(props: Props) {
           props.projectsFirstDisplay ? styles.firstDisplayed : styles.leftOne
         }
         codeHref={projects.zimka.codeHref}
+        liveHref={projects.zimka.liveHref}
       />
       <Project
         title={projects.mtg.title}
