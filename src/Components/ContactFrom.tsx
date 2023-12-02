@@ -96,8 +96,8 @@ export default function ContactForm(props) {
           setIsSentOut(true);
           event.target.reset();
           props.mailSent();
-        }, 1000); // await emailjs.sendForm(serviceID, templateID, event.target, publicKey);
-        // setIsSending(false);
+        }, 1000);  await emailjs.sendForm(serviceID, templateID, event.target, publicKey);
+         setIsSending(false);
       }
     } catch (error) {
       console.log(error);
