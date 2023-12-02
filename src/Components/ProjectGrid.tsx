@@ -48,7 +48,7 @@ const projects = {
       "This is one of the first projects that I decided to build to organize knowledge related to the basics and most important programming concepts. The application allows you to generate a unique password consisting of letters, numbers or other characters, depending on the user's choice.",
     screenshots: [PassGenOne, PassGenTwo, PassGenThree],
     codeHref: "https://github.com/Marekplo/PasswordGenerator",
-    liveHref: "https://marekplo.github.io/ConnectFourGame/",
+    liveHref: "https://marekplo.github.io/PasswordGenerator/",
   },
 };
 
