@@ -23,15 +23,15 @@ const projects = {
     description:
       "The website was created in cooperation with an accordionist who performs successfully not only in Poland, but also throughout Europe. This is an extensive artist's business card, consisting of several subpages where we can learn more about the musician, his work and future concerts. The user can also listen to selected artist's music on a popular streaming platform and purchase available CDs. (Due to waiting for access to the rest of the materials and links, some of the functions available on the website (e.g. changing the language) are not yet active, work on the website is still in progress).",
     screenshots: [ZimkaOne, ZimkaTwo, ZimkaThree],
-    codeHref:"https://github.com/Marekplo/maciej-zimka",
-    liveHref:"https://marekplo.github.io/maciej-zimka/"
+    codeHref:"https://github.com/MarekPloszczyca/maciej-zimka",
+    liveHref:"https://marekploszczyca.github.io/maciej-zimka/"
   },
   mtg: {
     title: "Magic: The Gathering Database",
     description:
       "As the name suggests, this website is intended for searching and viewing cards of the world's popular card game \"Magic: The Gathering\". The user can narrow the search using both several available filters and a field that allows you to search for a card after entering its name. Through the application and using the API, we have access to several dozen thousand official cards issued by the game's creators.",
     screenshots: [MTGOne, MTGTwo, MTGThree],
-    codeHref:"https://github.com/Marekplo/MagicTheGatheringCardDatabase",
+    codeHref:"https://github.com/MarekPloszczyca/MagicTheGatheringCardDatabase",
     liveHref:"https://mtgdatabase.netlify.app/"
   },
   connectFour: {
@@ -39,16 +39,16 @@ const projects = {
     description:
       '"Connect Four" is a game for two people that involves filling empty spaces on the board using two-colored tokens. Players move alternately, and each move is limited to a maximum of 30 seconds. The winner is the first person to arrange four tokens of the same color horizontally, vertically or diagonally. The application was created to be played by two people, but the user can choose to play against the computer, in which a simple algorithm imitates the opponent\'s movement.',
     screenshots: [ConnectOne, ConnectTwo, ConnectThree],
-    codeHref: "https://github.com/Marekplo/ConnectFourGame",
-    liveHref: "https://marekplo.github.io/ConnectFourGame",
+    codeHref: "https://github.com/MarekPloszczyca/ConnectFourGame",
+    liveHref: "https://marekploszczyca.github.io/ConnectFourGame/",
   },
   passwordGenerator: {
     title: "Password Generator",
     description:
       "This is one of the first projects that I decided to build to organize knowledge related to the basics and most important programming concepts. The application allows you to generate a unique password consisting of letters, numbers or other characters, depending on the user's choice.",
     screenshots: [PassGenOne, PassGenTwo, PassGenThree],
-    codeHref: "https://github.com/Marekplo/PasswordGenerator",
-    liveHref: "https://marekplo.github.io/PasswordGenerator/",
+    codeHref: "https://github.com/MarekPloszczyca/PasswordGenerator",
+    liveHref: "https://marekploszczyca.github.io/PasswordGenerator/",
   },
 };
 
