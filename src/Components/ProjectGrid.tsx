@@ -24,7 +24,7 @@ const projects = {
       "The website was created in cooperation with an accordionist who performs successfully not only in Poland, but also throughout Europe. This is an extensive artist's business card, consisting of several subpages where we can learn more about the musician, his work and future concerts. The user can also listen to selected artist's music on a popular streaming platform and purchase available CDs. (Due to waiting for access to the rest of the materials and links, some of the functions available on the website (e.g. changing the language) are not yet active, work on the website is still in progress).",
     screenshots: [ZimkaOne, ZimkaTwo, ZimkaThree],
     codeHref:"https://github.com/MarekPloszczyca/maciej-zimka",
-    liveHref:"https://marekploszczyca.github.io/maciej-zimka/"
+    liveHref:"https://maciej-zimka.netlify.app"
   },
   mtg: {
     title: "Magic: The Gathering Database",
@@ -40,7 +40,7 @@ const projects = {
       '"Connect Four" is a game for two people that involves filling empty spaces on the board using two-colored tokens. Players move alternately, and each move is limited to a maximum of 30 seconds. The winner is the first person to arrange four tokens of the same color horizontally, vertically or diagonally. The application was created to be played by two people, but the user can choose to play against the computer, in which a simple algorithm imitates the opponent\'s movement.',
     screenshots: [ConnectOne, ConnectTwo, ConnectThree],
     codeHref: "https://github.com/MarekPloszczyca/ConnectFourGame",
-    liveHref: "https://marekploszczyca.github.io/ConnectFourGame/",
+    liveHref: "https://four-connect-game.netlify.app",
   },
   passwordGenerator: {
     title: "Password Generator",
@@ -48,7 +48,7 @@ const projects = {
       "This is one of the first projects that I decided to build to organize knowledge related to the basics and most important programming concepts. The application allows you to generate a unique password consisting of letters, numbers or other characters, depending on the user's choice.",
     screenshots: [PassGenOne, PassGenTwo, PassGenThree],
     codeHref: "https://github.com/MarekPloszczyca/PasswordGenerator",
-    liveHref: "https://marekploszczyca.github.io/PasswordGenerator/",
+    liveHref: "https://passerator-app.netlify.app",
   },
 };
 
