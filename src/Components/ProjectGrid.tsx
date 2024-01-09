@@ -46,7 +46,7 @@ const projects = {
   shop: {
     title: "Product.",
     description:
-      'This website is a dummy e-commerce shop, where user can order products. "Product." website allows user to search for products through different categories and sort them using filters. Products can be added to cart as in the real shop and might be ordered only after form is completed correctly. All items are available thanks to "Fake Store API".',
+      'This website is a e-commerce shop, where user can order products. "Product." website allows user to search for items through different categories and sort them using filters. Products can be added to cart as in the real shop and might be ordered only after form is completed correctly. All items are available thanks to "Fake Store API".',
     screenshots: [ShopOne, ShopTwo, ShopThree],
     codeHref: "https://github.com/MarekPloszczyca/E-commerce-shop",
     liveHref: "https://product-e-commerce.netlify.app",
