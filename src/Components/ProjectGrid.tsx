@@ -60,7 +60,9 @@ export default function ProjectGrid(props: Props) {
         title={projects.shop.title}
         description={projects.shop.description}
         screenshots={projects.shop.screenshots}
-        style={props.projectsSecondDisplay ? styles.rightTwo : undefined}
+        style={
+          props.projectsFirstDisplay ? styles.firstDisplayed : styles.leftOne
+        }
         codeHref={projects.shop.codeHref}
         liveHref={projects.shop.liveHref}
       />
@@ -69,7 +71,7 @@ export default function ProjectGrid(props: Props) {
         description={projects.zimka.description}
         screenshots={projects.zimka.screenshots}
         style={
-          props.projectsFirstDisplay ? styles.firstDisplayed : styles.leftOne
+          props.projectsFirstDisplay ? styles.secondDisplayed : styles.rightOne
         }
         codeHref={projects.zimka.codeHref}
         liveHref={projects.zimka.liveHref}
@@ -78,9 +80,7 @@ export default function ProjectGrid(props: Props) {
         title={projects.mtg.title}
         description={projects.mtg.description}
         screenshots={projects.mtg.screenshots}
-        style={
-          props.projectsFirstDisplay ? styles.secondDisplayed : styles.rightOne
-        }
+        style={props.projectsSecondDisplay ? styles.leftTwo : undefined}
         codeHref={projects.mtg.codeHref}
         liveHref={projects.mtg.liveHref}
       />
@@ -88,7 +88,7 @@ export default function ProjectGrid(props: Props) {
         title={projects.connectFour.title}
         description={projects.connectFour.description}
         screenshots={projects.connectFour.screenshots}
-        style={props.projectsSecondDisplay ? styles.leftTwo : undefined}
+        style={props.projectsSecondDisplay ? styles.rightTwo : undefined}
         codeHref={projects.connectFour.codeHref}
         liveHref={projects.connectFour.liveHref}
       />
