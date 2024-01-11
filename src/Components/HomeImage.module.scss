@@ -1,6 +1,4 @@
 .homeImage {
-  padding-top: 3rem;
-
   img {
     position: relative;
     width: 13rem;
@@ -9,27 +7,28 @@
     bottom: 13.2rem;
     left: 0.2rem;
   }
-}
-
-
-
-.homeImage::before {
-  display: block;
-  content: "";
-  width: 13.4rem;
-  height: 13.4rem;
-  background: linear-gradient(to top, #9994a2, #d53a9d);
-  border-radius: 50%;
-}
-@media (min-width: 1024px) {
-  .homeImage img {
-    width: 14rem;
-    height: 14rem;
-    bottom: 14.2rem;
-    left: 0.2rem;
+  &:before {
+    display: block;
+    content: "";
+    width: 13.4rem;
+    height: 13.4rem;
+    background: linear-gradient(to top, #9994a2, #d53a9d);
+    border-radius: 50%;
   }
-  .homeImage::before {
-    width: 14.4rem;
-    height: 14.4rem;
+}
+
+@media (min-width: 1024px) {
+  .homeImage {
+    padding-top: 3rem;
+    img {
+      width: 14rem;
+      height: 14rem;
+      bottom: 14.2rem;
+      left: 0.2rem;
+    }
+    &:before {
+      width: 14.4rem;
+      height: 14.4rem;
+    }
   }
 }

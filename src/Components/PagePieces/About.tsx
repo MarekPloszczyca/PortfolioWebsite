@@ -1,6 +1,6 @@
 import Description from "../Description";
 import SectionTitle from "../SectionTitle";
-import aboutImage from "../../Assets/AboutImage.jpg";
+
 import styles from "./About.module.scss";
 import { MutableRefObject } from "react";
 
@@ -20,7 +20,7 @@ export default function About(props: Props) {
       >
         <Description aboutScrolled={props.aboutScrolled} />
         <div className={props.aboutScrolled ? styles.animated : undefined}>
-          <img src={aboutImage}></img>
+       
         </div>
       </div>
     </div>

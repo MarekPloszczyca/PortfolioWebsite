@@ -5,6 +5,7 @@
   bottom: 12rem;
   padding: 2rem;
   font-family: "Bebas Neue", sans-serif;
+  font-size: 1.2rem;
   letter-spacing: 0.1rem;
   color: #303030;
 }
@@ -14,20 +15,34 @@
   row-gap: 0.2rem;
   text-align: center;
   span img {
-    width: 2rem;
+    width: 2.5rem;
     animation-name: wave;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+    -webkit-animation-name: wave;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
   }
 }
 @keyframes wave {
-  0%{
+  0% {
     transform: rotate(0);
   }
-  50%{
+  50% {
     transform: rotate(10deg);
   }
-  100%{
+  100% {
+    transform: rotate(0);
+  }
+}
+@-webkit-keyframes wave {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
     transform: rotate(0);
   }
 }
@@ -45,9 +60,9 @@
   border-bottom-left-radius: 1rem;
   background-image: linear-gradient(#9994a2, #d53a9d);
 }
-.darkModeHeader{
+.darkModeHeader {
   @extend .headerContainer;
-  color:#d8d7d7
+  color: #d8d7d7;
 }
 @media (min-width: 1024px) {
   .header {

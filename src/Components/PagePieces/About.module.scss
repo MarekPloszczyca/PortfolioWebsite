@@ -1,70 +1,10 @@
 .aboutContainer {
   display: flex;
   justify-content: center;
- 
-  div {
-    display: none;
-    max-width: 60rem;
-    height: 13rem;
-  }
-  img {
-    position: relative;
-    right: 4rem;
-    width: 20rem;
-    z-index: 2;
-    transform: translateX(650%);
-  }
-  div::after {
-    display: block;
-    position: relative;
-    left: 2.2rem;
-    bottom: 21.4rem;
-    content: "";
-    width: 13rem;
-    height: 13rem;
-    border: dotted 1rem #722c85;
-    z-index: 1;
-    opacity: 0;
-  }
 }
 
 .displayed {
   @extend .aboutContainer;
-  img {
-    animation-name: fromRight;
-    animation-duration: 2.75s;
-    animation-fill-mode: forwards;
-    -webkit-animation-name: fromRight;
-    -webkit-animation-duration: 2.75s;
-    -webkit-animation-fill-mode: forwards;
-  }
-  div::after {
-    animation-name: display;
-    animation-duration: 1s;
-    animation-delay: 3.2s;
-    animation-fill-mode: forwards;
-    -webkit-animation-name: display;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-delay: 3.2s;
-    -webkit-animation-fill-mode: forwards;
-  }
-}
-
-@keyframes fromRight {
-  from {
-    transform: translateX(650%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-@-webkit-keyframes fromRight {
-  from {
-    transform: translateX(650%);
-  }
-  to {
-    transform: translateX(0);
-  }
 }
 @keyframes display {
   from {
