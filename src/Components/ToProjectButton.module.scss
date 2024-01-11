@@ -1,0 +1,33 @@
+.button {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: transparent;
+  width: 13rem;
+  border: solid 0.1rem #d2d2d2;
+  color: #d2d2d2;
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  font-family: "Oswald", sans-serif;
+  transition: 0.3s;
+  cursor: pointer;
+  outline: none;
+  svg {
+    position: relative;
+    top: 0.2rem;
+    width: 100%;
+    color: #d2d2d2 !important;
+    transition: 0.3s;
+  }
+}
+@media (min-width: 1024px) {
+  .button:hover {
+    color: #ffffff;
+    background-color: #04c2c9;
+    border-color: #04c2c9;
+    svg {
+      color: #ffffff !important;
+      transform: rotate(90deg);
+    }
+  }
+}

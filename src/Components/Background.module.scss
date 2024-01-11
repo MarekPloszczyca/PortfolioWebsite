@@ -572,6 +572,10 @@
   top: 35%;
   left: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   span {
     background: -webkit-linear-gradient(white, #38495a);
     background-clip: text;

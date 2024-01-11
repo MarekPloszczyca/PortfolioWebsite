@@ -7,7 +7,7 @@ import {
   Briefcase,
   Mail,
 } from "react-ionicons";
-import { useReducer, useEffect, useState, Fragment } from "react";
+import { useReducer, useEffect, useState, Fragment, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { light, dark } from "../GlobalStates/store";
 
@@ -74,6 +74,7 @@ interface Props {
   aboutAnimation: () => void;
   firstProjectsAnimation: () => void;
   secondProjectsAnimation: () => void;
+  projects: boolean;
 }
 
 export default function Navbar(props: Props) {
@@ -90,12 +91,15 @@ export default function Navbar(props: Props) {
   const mode = useSelector((state: { dark: boolean }) => state.dark);
   const modeHandler = useDispatch();
 
-  const activeNavbarHandler = (section: number) => {
-    if (section === 0) {
-      return window.scrollTo(0, 0);
-    }
-    props.refs[section].scrollIntoView();
-  };
+  const activeNavbarHandler = useCallback(
+    (section: number) => {
+      if (section === 0) {
+        return window.scrollTo(0, 0);
+      }
+      props.refs[section].scrollIntoView();
+    },
+    [props.refs]
+  );
 
   useEffect(() => {
     if (distances.length === 5) {
@@ -139,7 +143,7 @@ export default function Navbar(props: Props) {
       if (distances[3] - 500 < window.scrollY) {
         props.firstProjectsAnimation();
       }
-      if (distances[3] +   100 < window.scrollY) {
+      if (distances[3] + 100 < window.scrollY) {
         props.secondProjectsAnimation();
       }
       const windowScroll = window.scrollY + 200;
@@ -164,6 +168,10 @@ export default function Navbar(props: Props) {
       window.addEventListener("scroll", scrollHandler);
     }
   }, [distances, currentScroll, props]);
+
+  useEffect(() => {
+    props.projects ? activeNavbarHandler(3) : undefined;
+  }, [props.projects, activeNavbarHandler]);
 
   return (
     <Fragment>

@@ -20,6 +20,7 @@ function App() {
   const [aboutScroll, setAboutScroll] = useState(false);
   const [projectsFirstScroll, setProjectsFirstScroll] = useState(false);
   const [projectsSecondScroll, setProjectsSecondScroll] = useState(false);
+  const [projects, setProjects] = useState(false);
 
   useEffect(() => {
     if (refs.length === 5) {
@@ -43,6 +44,13 @@ function App() {
     setProjectsSecondScroll(true);
   };
 
+  const toProjectsHandler = () => {
+    setProjects(true);
+    setTimeout(() => {
+      setProjects(false);
+    });
+  };
+
   return (
     <div className={mode ? styles.dark : styles.light}>
       <Navbar
@@ -50,8 +58,9 @@ function App() {
         aboutAnimation={aboutAnimation}
         firstProjectsAnimation={projectsFirstAnimation}
         secondProjectsAnimation={projectsSecondAnimation}
+        projects={projects}
       />
-      <Home myDivRef={homeRef} />
+      <Home myDivRef={homeRef} toProjects={toProjectsHandler} />
       <div className={styles.container}>
         <About aboutRef={aboutRef} aboutScrolled={aboutScroll} />
         <TechStack techRef={techRef} />
