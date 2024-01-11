@@ -1,4 +1,4 @@
-import HomeImage from "../HomeImage";
+
 import styles from "./Home.module.scss";
 import { MutableRefObject } from "react";
 import Background from "../Background";
