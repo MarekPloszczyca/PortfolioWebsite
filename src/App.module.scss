@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
+.container {
+  position: relative;
+  top: 45rem;
+}
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -12,8 +16,8 @@ html {
   z-index: -3;
   transition: 0.5s;
 }
-.light{
+.light {
   background-color: #ffffff;
   transition: 0.5s;
-  color:#000000;
+  color: #000000;
 }

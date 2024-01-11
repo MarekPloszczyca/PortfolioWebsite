@@ -19,9 +19,9 @@ export default function About(props: Props) {
         }
       >
         <Description aboutScrolled={props.aboutScrolled} />
-        <div className={props.aboutScrolled ? styles.animated : undefined}>
-       
-        </div>
+        <div
+          className={props.aboutScrolled ? styles.animated : undefined}
+        ></div>
       </div>
     </div>
   );

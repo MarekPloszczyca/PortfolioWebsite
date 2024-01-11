@@ -14,7 +14,8 @@ export default function Header() {
           My name is <span className={styles.name}>Marek</span>
         </span>
         <span>
-          I'm a <span className={styles.underline}>Front-End</span> Developer
+          <span>I'm a</span> <span className={styles.underline}>Front-End</span>{" "}
+          Developer
         </span>
       </h1>
     </div>

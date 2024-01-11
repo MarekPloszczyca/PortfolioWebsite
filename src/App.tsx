@@ -52,14 +52,16 @@ function App() {
         secondProjectsAnimation={projectsSecondAnimation}
       />
       <Home myDivRef={homeRef} />
-      <About aboutRef={aboutRef} aboutScrolled={aboutScroll} />
-      <TechStack techRef={techRef} />
-      <Projects
-        projectsRef={projectsRef}
-        projectsFirstDisplay={projectsFirstScroll}
-        projectsSecondDisplay={projectsSecondScroll}
-      />
-      <Contact contactRef={contactRef} />
+      <div className={styles.container}>
+        <About aboutRef={aboutRef} aboutScrolled={aboutScroll} />
+        <TechStack techRef={techRef} />
+        <Projects
+          projectsRef={projectsRef}
+          projectsFirstDisplay={projectsFirstScroll}
+          projectsSecondDisplay={projectsSecondScroll}
+        />
+        <Contact contactRef={contactRef} />
+      </div>
     </div>
   );
 }
