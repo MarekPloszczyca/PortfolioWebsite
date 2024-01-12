@@ -41,6 +41,7 @@
 }
 .modeButtonContainer {
   position: sticky;
+  pointer-events: none;
   top: 3.6rem;
   height:6rem;
   overflow-x: hidden;
@@ -57,6 +58,7 @@
   height: 3rem;
   width: 0.1rem;
   border: none;
+  pointer-events: all !important;
 }
 .modeButton:focus {
   outline: none;
