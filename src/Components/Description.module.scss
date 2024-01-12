@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
 
-%circle {
+.circle {
   display: block;
   position: relative;
   border-radius: 50%;
@@ -21,7 +21,7 @@
   opacity:0;
  
   span:before {
-    @extend %circle;
+    @extend .circle;
     top: 10rem;
     left: 0.5rem;
     width: 8rem;
@@ -67,7 +67,7 @@
 }
 
 .description:before {
-  @extend %circle;
+  @extend .circle;
   top: 25rem;
   left: 3.5rem;
   width: 11rem;

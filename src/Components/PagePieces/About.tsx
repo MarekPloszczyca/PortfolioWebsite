@@ -1,4 +1,5 @@
 import Description from "../Description";
+import HomeImage from "../HomeImage";
 import SectionTitle from "../SectionTitle";
 
 import styles from "./About.module.scss";
@@ -18,10 +19,10 @@ export default function About(props: Props) {
           props.aboutScrolled ? styles.displayed : styles.aboutContainer
         }
       >
-        <Description aboutScrolled={props.aboutScrolled} />
-        <div
-          className={props.aboutScrolled ? styles.animated : undefined}
-        ></div>
+        <div className={styles.sectionContainer}>
+          <Description aboutScrolled={props.aboutScrolled} />
+          <HomeImage aboutScrolled={props.aboutScrolled} />
+        </div>
       </div>
     </div>
   );
