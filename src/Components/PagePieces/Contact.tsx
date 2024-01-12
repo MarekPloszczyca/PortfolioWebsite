@@ -1,4 +1,4 @@
-import { Fragment, useState, MutableRefObject } from "react";
+import { useState, MutableRefObject } from "react";
 import { useSelector } from "react-redux";
 import SectionTitle from "../SectionTitle";
 import styles from "./Contact.module.scss";
@@ -17,7 +17,15 @@ export default function Contact(props: Props) {
     setSentMail(true);
   };
   return (
-    <Fragment>
+    <div className={mode ? styles.dark : styles.container}>
+      <svg
+        preserveAspectRatio="none"
+        viewBox="0 0 100 102"
+        height="75"
+        width="100%"
+      >
+        <path d="M0 0 L50 100 L100 0 Z" ></path>
+      </svg>
       <SectionTitle id="Contact" myDivRef={props.contactRef} />
       <div className={styles.text}>
         <p>
@@ -31,6 +39,6 @@ export default function Contact(props: Props) {
           <Informations sentMail={sentMail} />
         </footer>
       </div>
-    </Fragment>
+    </div>
   );
 }

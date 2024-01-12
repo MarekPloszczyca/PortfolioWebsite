@@ -6,11 +6,17 @@
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
   text-align: center;
-  padding: 0 0.5rem;
+  padding: 0 0.5rem 2rem 0;
+  background-color: rgb(246, 246, 246);
+  transition: 0.5s;
   p{
     position: relative;
     bottom:1.5rem;
   }
+}
+.dark{
+  @extend .techStack;
+  background-color: rgb(34, 34, 34);
 }
 
 

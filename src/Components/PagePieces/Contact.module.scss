@@ -1,12 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
-
+.container {
+  position: relative;
+  background-color: #f6f6f6;
+  overflow: hidden;
+  transition: 0.5s;
+  svg {
+    fill: #ffffff;
+    transition: 0.5s;
+  }
+}
 .text {
   width: 100%;
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
   text-align: center;
+
   p {
-    padding:0 0.5rem;
+    padding: 0 0.5rem;
   }
 }
 
@@ -20,23 +30,31 @@
   padding: 0 1rem 2rem 1rem;
 }
 
-.darkModeContact{
-  @extend .contact;
- 
-}
-@media (min-width:1024px){
-.contact{
-  flex-direction: row;
-  padding:0;
-  background: linear-gradient(45deg, #a294a0, #f0f0f0);
-  border-top-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-}
-.darkModeContact{
-  background: linear-gradient(115deg, #9994a2, #000000) !important;
-}
+.dark {
+  @extend .container;
+  background-color: #222222;
 
-.formContainer{
-  padding:2rem;
+  svg {
+    fill: #262626;
+  
+  }
 }
+.darkModeContact {
+  @extend .contact;
+}
+@media (min-width: 1024px) {
+  .contact {
+    flex-direction: row;
+    padding: 0;
+    background: linear-gradient(45deg, #a294a0, #f0f0f0);
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+  .darkModeContact {
+    background: linear-gradient(115deg, #9994a2, #000000) !important;
+  }
+
+  .formContainer {
+    padding: 2rem;
+  }
 }
