@@ -7,6 +7,7 @@ import Js from "../Assets/js.png";
 import React from "../Assets/react.png";
 import TypeScript from "../Assets/TypeScript.png";
 import RestAPI from "../Assets/restAPI.png";
+import TailwindCss from "../Assets/tailwindCss.png";
 import Sass from "../Assets/sass.png";
 import Git from "../Assets/git.png";
 import Github from "../Assets/github-light.png";
@@ -30,6 +31,7 @@ const technologies = [
   new Tech(Js, "JavaScript"),
   new Tech(React, "React(incl. Redux & Router)"),
   new Tech(TypeScript, "TypeScript"),
+  new Tech(TailwindCss, "TailwindCSS"),
   new Tech(Sass, "SCSS,SASS"),
   new Tech(RestAPI, "RestAPI"),
   new Tech(Git, "Git"),
