@@ -3,9 +3,9 @@ import styles from "./ProjectGrid.module.scss";
 import ShopOne from "../Assets/WebsitesScreenshots/Shop1.jpg";
 import ShopTwo from "../Assets/WebsitesScreenshots/Shop2.jpg";
 import ShopThree from "../Assets/WebsitesScreenshots/Shop3.jpg";
-import ConnectOne from "../Assets/WebsitesScreenshots/ConnectFour1.jpg";
-import ConnectTwo from "../Assets/WebsitesScreenshots/ConnectFour2.jpg";
-import ConnectThree from "../Assets/WebsitesScreenshots/ConnectFour3.jpg";
+import FoodieOne from "../Assets/WebsitesScreenshots/Foodie1.jpg";
+import FoodieTwo from "../Assets/WebsitesScreenshots/Foodie2.jpg";
+import FoodieThree from "../Assets/WebsitesScreenshots/Foodie3.jpg";
 import MTGOne from "../Assets/WebsitesScreenshots/MTGDatabase1.jpg";
 import MTGTwo from "../Assets/WebsitesScreenshots/MTGDatabase2.jpg";
 import MTGThree from "../Assets/WebsitesScreenshots/MTGDatabase3.jpg";
@@ -35,13 +35,13 @@ const projects = {
       "https://github.com/MarekPloszczyca/MagicTheGatheringCardDatabase",
     liveHref: "https://mtgdatabase.netlify.app/",
   },
-  connectFour: {
-    title: "Connect Four",
+  foodie: {
+    title: "Foodie",
     description:
-      '"Connect Four" is a game for two people that involves filling empty spaces on the board using two-colored tokens. Players move alternately, and each move is limited to a maximum of 30 seconds. The winner is the first person to arrange four tokens of the same color horizontally, vertically or diagonally. The application was created to be played by two people, but the user can choose to play against the computer, in which a simple algorithm imitates the opponent\'s movement.',
-    screenshots: [ConnectOne, ConnectTwo, ConnectThree],
-    codeHref: "https://github.com/MarekPloszczyca/ConnectFourGame",
-    liveHref: "https://four-connect-game.netlify.app",
+      "\"Foodie\" is a restaurant website where customers can learn more about his favorite place. The website contains several subpages that allow user i.a. browse through restaurant's menu or reserve a table. When it comes to booking, site is saving correctly completed form informations in Local Storage and user can't reserve more using the same name to imitate real connection with restaurant database.",
+    screenshots: [FoodieOne, FoodieTwo, FoodieThree],
+    codeHref: "https://github.com/MarekPloszczyca/Foodie",
+    liveHref: "https://foodie-res.netlify.app",
   },
   shop: {
     title: "Product.",
@@ -77,20 +77,20 @@ export default function ProjectGrid(props: Props) {
         liveHref={projects.zimka.liveHref}
       />
       <Project
+        title={projects.foodie.title}
+        description={projects.foodie.description}
+        screenshots={projects.foodie.screenshots}
+        style={props.projectsSecondDisplay ? styles.leftTwo : undefined}
+        codeHref={projects.foodie.codeHref}
+        liveHref={projects.foodie.liveHref}
+      />
+      <Project
         title={projects.mtg.title}
         description={projects.mtg.description}
         screenshots={projects.mtg.screenshots}
-        style={props.projectsSecondDisplay ? styles.leftTwo : undefined}
+        style={props.projectsSecondDisplay ? styles.rightTwo : undefined}
         codeHref={projects.mtg.codeHref}
         liveHref={projects.mtg.liveHref}
-      />
-      <Project
-        title={projects.connectFour.title}
-        description={projects.connectFour.description}
-        screenshots={projects.connectFour.screenshots}
-        style={props.projectsSecondDisplay ? styles.rightTwo : undefined}
-        codeHref={projects.connectFour.codeHref}
-        liveHref={projects.connectFour.liveHref}
       />
     </div>
   );
