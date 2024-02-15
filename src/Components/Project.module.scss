@@ -50,6 +50,10 @@
     color:inherit;
   }
 }
+.darkProject{
+  @extend .project;
+  box-shadow: 0 0 0.5rem 0.25rem #101010;
+}
 
 @media (max-width: 375px) {
   .project div p {
@@ -60,6 +64,9 @@
 @media (min-width: 1024px) {
   .project:hover {
     box-shadow: 0 0 6.5rem 1.25rem #d53a9d;
+  }
+  .darkProject:hover{
+    box-shadow:0 0 0.5rem 0.5rem #d53a9d;
   }
 
   .descriptionContainer div p:hover {
